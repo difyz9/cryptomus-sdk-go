@@ -13,13 +13,13 @@ type Cryptomus struct {
 
 type Option func(*Cryptomus)
 
-// New creates a new Cryptomus SDK instance.
+// New 创建一个新的 Cryptomus SDK 实例。
 //
-// Make sure to set the Merchant and PaymentToken before using the SDK. follow the example at https://doc.cryptomus.com/business/general/getting-api-keys
+// 在使用 SDK 之前，请确保设置 Merchant 和 PaymentToken。参考示例：https://doc.cryptomus.com/business/general/getting-api-keys
 //
-// Also check the request format at https://doc.cryptomus.com/business/general/request-format
+// 同时查看请求格式：https://doc.cryptomus.com/business/general/request-format
 //
-// You could set the PaymentToken and PayoutToken for the each instance of the SDK.
+// 您可以为每个 SDK 实例设置 PaymentToken 和 PayoutToken。
 func New(options ...Option) *Cryptomus {
 	cryptomus := DefaultCryptomus()
 

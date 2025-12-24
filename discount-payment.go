@@ -5,11 +5,11 @@ import (
 )
 
 type Discount struct {
-	// Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 货币代码（例如 BTC、ETH、USDT 等）
 	Currency string `json:"currency"`
-	// Blockchain network (e.g. ARBITRUM, AVALANCHE, BCH, etc.)
+	// 区块链网络（例如 ARBITRUM、AVALANCHE、BCH 等）
 	Network string `json:"network"`
-	// Discount percent (e.g. 5, 10, -15, etc.)
+	// 折扣百分比（例如 5、10、-15 等）
 	Discount int `json:"discount"`
 }
 
@@ -20,11 +20,11 @@ type ListOfDiscountResponse struct {
 	Result ListOfDiscount `json:"result"`
 }
 
-// ListOfDiscount returns a list of discounts.
+// ListOfDiscount 返回折扣列表。
 //
-// Details: https://doc.cryptomus.com/business/discount/list
+// 详情：https://doc.cryptomus.com/business/discount/list
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ListOfDiscount()
 //	if err != nil {
@@ -34,11 +34,11 @@ func (sdk *Cryptomus) ListOfDiscount() (*ListOfDiscountResponse, error) {
 	return sdk.ListOfDiscountWithContext(context.Background())
 }
 
-// ListOfDiscountWithContext returns a list of discounts.
+// ListOfDiscountWithContext 返回折扣列表。
 //
-// Details: https://doc.cryptomus.com/business/discount/list
+// 详情：https://doc.cryptomus.com/business/discount/list
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ListOfDiscountWithContext(ctx)
 //	if err != nil {
@@ -63,11 +63,11 @@ func (sdk *Cryptomus) ListOfDiscountWithContext(ctx context.Context) (*ListOfDis
 }
 
 type SetDiscountToPaymentMethodRequest struct {
-	// Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 货币代码（例如 BTC、ETH、USDT 等）
 	Currency string `json:"currency"`
-	// Blockchain network (e.g. ARBITRUM, AVALANCHE, BCH, etc.)
+	// 区块链网络（例如 ARBITRUM、AVALANCHE、BCH 等）
 	Network string `json:"network"`
-	// Discount percent (e.g. 5, 10, -15, etc.)
+	// 折扣百分比（例如 5、10、-15 等）
 	Discount int `json:"discount_percent"`
 }
 
@@ -76,17 +76,17 @@ type SetDiscountToPaymentMethodResponse struct {
 	Result Discount `json:"result,omitempty"`
 }
 
-// SetDiscountToPaymentMethod sets a discount to a payment method.
+// SetDiscountToPaymentMethod 为支付方式设置折扣。
 //
-// Details: https://doc.cryptomus.com/business/discount/set
+// 详情：https://doc.cryptomus.com/business/discount/set
 //
-// Discount Percent:
-//   - Positive Numbers (>0): Provides buyers a discount for paying with a coin.
-//     Useful for promotions or encouraging payments with a particular cryptocurrency.
-//   - Negative Numbers (<0): Adds a percentage (padding) for paying with a coin.
-//     This can help cover crypto/fiat conversion costs or adjust for local exchange differences.
+// 折扣百分比：
+//   - 正数 (>0)：为使用该加密货币支付的买家提供折扣。
+//     适用于促销活动或鼓励使用特定加密货币支付。
+//   - 负数 (<0)：为使用该加密货币支付增加一个百分比（填充）。
+//     这可以帮助覆盖加密货币/法币转换成本或调整当地汇率差异。
 //
-// Example:
+// 示例：
 //
 //	err := sdk.SetDiscountToPaymentMethod(payload)
 //	if err != nil {
@@ -96,17 +96,17 @@ func (sdk *Cryptomus) SetDiscountToPaymentMethod(payload SetDiscountToPaymentMet
 	return sdk.SetDiscountToPaymentMethodWithContext(context.Background(), payload)
 }
 
-// SetDiscountToPaymentMethodWithContext sets a discount to a payment method.
+// SetDiscountToPaymentMethodWithContext 为支付方式设置折扣。
 //
-// Details: https://doc.cryptomus.com/business/discount/set
+// 详情：https://doc.cryptomus.com/business/discount/set
 //
-// Discount Percent:
-//   - Positive Numbers (>0): Provides buyers a discount for paying with a coin.
-//     Useful for promotions or encouraging payments with a particular cryptocurrency.
-//   - Negative Numbers (<0): Adds a percentage (padding) for paying with a coin.
-//     This can help cover crypto/fiat conversion costs or adjust for local exchange differences.
+// 折扣百分比：
+//   - 正数 (>0)：为使用该加密货币支付的买家提供折扣。
+//     适用于促销活动或鼓励使用特定加密货币支付。
+//   - 负数 (<0)：为使用该加密货币支付增加一个百分比（填充）。
+//     这可以帮助覆盖加密货币/法币转换成本或调整当地汇率差异。
 //
-// Example:
+// 示例：
 //
 //	err := sdk.SetDiscountToPaymentMethodWithContext(ctx, payload)
 //	if err != nil {

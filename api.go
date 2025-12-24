@@ -7,7 +7,7 @@ var (
 )
 
 var (
-	// Payments
+	// 支付相关
 
 	CreateInvoiceEndpoint                 Endpoint = "/v1/payment"
 	CreateStaticWalletEndpoint            Endpoint = "/v1/wallet"
@@ -21,13 +21,13 @@ var (
 	PaymentListOfServicesEndpoint         Endpoint = "/v1/payment/services"
 	PaymentHistoryEndpoint                Endpoint = "/v1/payment/list"
 
-	// Webhook
+	// Webhook 相关
 
 	TestingWebhookPaymentEndpoint Endpoint = "/v1/test-webhook/payment"
 	TestingWebhookPayoutEndpoint  Endpoint = "/v1/test-webhook/payout"
 	TestingWebhookWalletEndpoint  Endpoint = "/v1/test-webhook/wallet"
 
-	// Payouts
+	// 提现相关
 
 	CreatePayoutEndpoint             Endpoint = "/v1/payout"
 	PayoutInformationEndpoint        Endpoint = "/v1/payout/info"
@@ -36,23 +36,23 @@ var (
 	TransferToPersonalWalletEndpoint Endpoint = "/v1/transfer/to-personal"
 	TransferToBusinessWalletEndpoint Endpoint = "/v1/transfer/to-business"
 
-	// Recurring Payments
+	// 循环支付相关
 
 	CreateRecurringPaymentEndpoint      Endpoint = "/v1/recurrence/create"
 	RecurringPaymentInformationEndpoint Endpoint = "/v1/recurrence/info"
 	ListRecurringPaymentsEndpoint       Endpoint = "/v1/recurrence/list"
 	CancelRecurringPaymentEndpoint      Endpoint = "/v1/recurrence/cancel"
 
-	// Exchange Rate
+	// 汇率相关
 
 	ExchangeRateListEndpoint Endpoint = "/v1/exchange-rate/%s/list"
 
-	// Discount Payment
+	// 折扣支付相关
 
 	ListOfDiscountsEndpoint            Endpoint = "/v1/payment/discount/list"
 	SetDiscountToPaymentMethodEndpoint Endpoint = "/v1/payment/discount/set"
 
-	// Balance
+	// 余额相关
 
 	BalanceEndpoint Endpoint = "/v1/balance"
 )

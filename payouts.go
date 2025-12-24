@@ -5,18 +5,18 @@ import (
 	"time"
 )
 
-// The payout status comes in the body of the response of some methods and indicates at what stage the payout is at the moment
+// PayoutStatus 提现状态在某些方法的响应主体中返回，指示提现当前所处的阶段。
 //
-// Details: https://doc.cryptomus.com/business/payouts/payout-statuses
+// 详情：https://doc.cryptomus.com/business/payouts/payout-statuses
 type PayoutStatus string
 
 const (
-	PayoutStatusProcess    PayoutStatus = "process"     // Payout is in process
-	PayoutStatusCheck      PayoutStatus = "check"       // The payout is being verified
-	PayoutStatusPaid       PayoutStatus = "paid"        // The payout was successful
-	PayoutStatusFail       PayoutStatus = "fail"        // Payout failed
-	PayoutStatusCancel     PayoutStatus = "cancel"      // Payout cancelled
-	PayoutStatusSystemFail PayoutStatus = "system_fail" // A system error has occurred
+	PayoutStatusProcess    PayoutStatus = "process"     // 提现处理中
+	PayoutStatusCheck      PayoutStatus = "check"       // 提现正在验证
+	PayoutStatusPaid       PayoutStatus = "paid"        // 提现成功
+	PayoutStatusFail       PayoutStatus = "fail"        // 提现失败
+	PayoutStatusCancel     PayoutStatus = "cancel"      // 提现已取消
+	PayoutStatusSystemFail PayoutStatus = "system_fail" // 系统错误
 )
 
 type CreatePayoutRequest struct {
@@ -55,23 +55,23 @@ type CreatePayoutResponse struct {
 	Result *PayoutData `json:"result"`
 }
 
-// CreatePayout creates a payout.
+// CreatePayout 创建提现。
 //
-// Details: https://doc.cryptomus.com/business/payout/creating
+// 详情：https://doc.cryptomus.com/business/payout/creating
 //
-// The payouts through API are made only from your business wallets balances.
+// 通过 API 提现仅从您的商户钱包余额中扣除。
 //
-// Payouts can be made in different ways:
+// 提现可以通过以下不同方式进行：
 //
-// - You can choose to receive the payout in a specific cryptocurrency and the payout will then be automatically processed in that specific cryptocurrency. To do so, ensure that you have sufficient balance in that particular currency to cover all associated fees.
+// - 您可以选择以特定加密货币接收提现，提现将自动以该特定加密货币处理。为此，请确保您在该特定货币中有足够的余额来支付所有相关费用。
 //
-// - Alternatively, you have the option to specify the payout amount in a fiat currency. In this case, the amount will be automatically converted to a specific cryptocurrency from your available balance. For instance, if you request a payout of 20 USD in LTC, the equivalent value will be deducted from your LTC balance. It is important to have enough funds in the corresponding cryptocurrency to cover all applicable fees.
+// - 或者，您可以选择以法定货币指定提现金额。在这种情况下，金额将自动从您的可用余额转换为特定加密货币。例如，如果您请求以 LTC 提现 20 美元，等值金额将从您的 LTC 余额中扣除。重要的是在相应的加密货币中有足够的资金来支付所有适用费用。
 //
-// - Another possibility is to specify the payout amount in a fiat currency, which will be automatically converted to a specific cryptocurrency using your USDT balance. This option is particularly useful when you have autoconvert enabled, as funds from your invoices are automatically converted to USDT. For example, if you want to make a payout of 20 USD in LTC but only have a balance in USDT, make sure you have sufficient USDT funds to cover all fees.
+// - 另一种可能性是以法定货币指定提现金额，该金额将使用您的 USDT 余额自动转换为特定加密货币。当您启用自动转换时，此选项特别有用，因为来自发票的资金会自动转换为 USDT。例如，如果您想以 LTC 提现 20 美元，但只有 USDT 余额，请确保您有足够的 USDT 资金来支付所有费用。
 //
-// - Additionally, you can choose to specify the payout amount in any cryptocurrency of your preference. The payout will then be automatically processed in that specific cryptocurrency, utilizing your available USDT balance. It is crucial to have enough USDT balance to cover all associated fees.
+// - 此外，您可以选择以您偏好的任何加密货币指定提现金额。然后，提现将自动以该特定加密货币处理，使用您可用的 USDT 余额。拥有足够的 USDT 余额来支付所有相关费用至关重要。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreatePayout(&CreatePayoutRequest{
 //		Amount:   "5",
@@ -89,23 +89,23 @@ func (sdk *Cryptomus) CreatePayout(payload *CreatePayoutRequest) (*CreatePayoutR
 	return sdk.CreatePayoutWithContext(context.Background(), payload)
 }
 
-// CreatePayoutWithContext creates a payout.
+// CreatePayoutWithContext 创建提现。
 //
-// Details: https://doc.cryptomus.com/business/payout/creating
+// 详情：https://doc.cryptomus.com/business/payout/creating
 //
-// The payouts through API are made only from your business wallets balances.
+// 通过 API 提现仅从您的商户钱包余额中扣除。
 //
-// Payouts can be made in different ways:
+// 提现可以通过以下不同方式进行：
 //
-// - You can choose to receive the payout in a specific cryptocurrency and the payout will then be automatically processed in that specific cryptocurrency. To do so, ensure that you have sufficient balance in that particular currency to cover all associated fees.
+// - 您可以选择以特定加密货币接收提现，提现将自动以该特定加密货币处理。为此，请确保您在该特定货币中有足够的余额来支付所有相关费用。
 //
-// - Alternatively, you have the option to specify the payout amount in a fiat currency. In this case, the amount will be automatically converted to a specific cryptocurrency from your available balance. For instance, if you request a payout of 20 USD in LTC, the equivalent value will be deducted from your LTC balance. It is important to have enough funds in the corresponding cryptocurrency to cover all applicable fees.
+// - 或者，您可以选择以法定货币指定提现金额。在这种情况下，金额将自动从您的可用余额转换为特定加密货币。例如，如果您请求以 LTC 提现 20 美元，等值金额将从您的 LTC 余额中扣除。重要的是在相应的加密货币中有足够的资金来支付所有适用费用。
 //
-// - Another possibility is to specify the payout amount in a fiat currency, which will be automatically converted to a specific cryptocurrency using your USDT balance. This option is particularly useful when you have autoconvert enabled, as funds from your invoices are automatically converted to USDT. For example, if you want to make a payout of 20 USD in LTC but only have a balance in USDT, make sure you have sufficient USDT funds to cover all fees.
+// - 另一种可能性是以法定货币指定提现金额，该金额将使用您的 USDT 余额自动转换为特定加密货币。当您启用自动转换时，此选项特别有用，因为来自发票的资金会自动转换为 USDT。例如，如果您想以 LTC 提现 20 美元，但只有 USDT 余额，请确保您有足够的 USDT 资金来支付所有费用。
 //
-// - Additionally, you can choose to specify the payout amount in any cryptocurrency of your preference. The payout will then be automatically processed in that specific cryptocurrency, utilizing your available USDT balance. It is crucial to have enough USDT balance to cover all associated fees.
+// - 此外，您可以选择以您偏好的任何加密货币指定提现金额。然后，提现将自动以该特定加密货币处理，使用您可用的 USDT 余额。拥有足够的 USDT 余额来支付所有相关费用至关重要。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreatePayout(ctx, &CreatePayoutRequest{
 //		Amount:   "5",

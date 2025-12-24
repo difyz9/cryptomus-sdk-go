@@ -7,29 +7,29 @@ type BalanceResponse struct {
 	Result []BalanceResult `json:"result,omitempty"`
 }
 
-// Merchant represents a business account.
+// Merchant 代表商户账户。
 type Merchant struct {
-	// Wallet UUID
+	// 钱包 UUID
 	UUID string `json:"uuid"`
-	// Business wallet balance
+	// 商户钱包余额
 	Balance string `json:"balance"`
-	// Wallet Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 钱包货币代码（例如 BTC、ETH、USDT 等）
 	CurrencyCode string `json:"currency_code"`
 }
 
-// User represents a personal account.
+// User 代表个人账户。
 type User struct {
-	// Wallet UUID
+	// 钱包 UUID
 	UUID string `json:"uuid"`
-	// Personal wallet balance
+	// 个人钱包余额
 	Balance string `json:"balance"`
-	// Wallet Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 钱包货币代码（例如 BTC、ETH、USDT 等）
 	CurrencyCode string `json:"currency_code"`
 }
 
-// Balance represents a list of balances.
+// Balance 代表余额列表。
 //
-// The list of balances includes Business (merchant) and Personal (user) wallets.
+// 余额列表包括商户（merchant）和个人（user）钱包。
 type Balance struct {
 	Merchant []Merchant `json:"merchant"`
 	User     []User     `json:"user"`
@@ -39,11 +39,11 @@ type BalanceResult struct {
 	Balance Balance `json:"balance"`
 }
 
-// Balance returns a list of balances.
+// Balance 返回余额列表。
 //
-// Details: https://doc.cryptomus.com/business/balance
+// 详情：https://doc.cryptomus.com/business/balance
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.Balance()
 //	if err != nil {
@@ -53,11 +53,11 @@ func (sdk *Cryptomus) Balance() (*BalanceResponse, error) {
 	return sdk.BalanceWithContext(context.Background())
 }
 
-// BalanceWithContext returns a list of balances.
+// BalanceWithContext 返回余额列表。
 //
-// Details: https://doc.cryptomus.com/business/balance
+// 详情：https://doc.cryptomus.com/business/balance
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.BalanceWithContext(ctx)
 //	if err != nil {

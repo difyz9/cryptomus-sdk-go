@@ -47,11 +47,11 @@ type RecurringPaymentData struct {
 	LastPayOff     *time.Time `json:"last_pay_off,omitempty"`
 }
 
-// CreateRecurringPayment creates a recurring payment.
+// CreateRecurringPayment 创建循环支付。
 //
-// Details: https://doc.cryptomus.com/business/recurring/creating
+// 详情：https://doc.cryptomus.com/business/recurring/creating
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateRecurringPayment(CreateRecurringPaymentRequest{
 //		Amount:   "0.0001",
@@ -66,15 +66,15 @@ func (sdk *Cryptomus) CreateRecurringPayment(request CreateRecurringPaymentReque
 	return sdk.CreateRecurringPaymentWithContext(context.Background(), request)
 }
 
-// CreateRecurringPaymentWithContext creates a recurring payment.
+// CreateRecurringPaymentWithContext 创建循环支付。
 //
-// Details: https://doc.cryptomus.com/business/recurring/creating
+// 详情：https://doc.cryptomus.com/business/recurring/creating
 //
-// Recurring payments in cryptocurrency are a way to automate regular transactions using digital assets. They can be useful for subscription-based services, donations, memberships, and other recurring payments.
+// 加密货币循环支付是使用数字资产自动化定期交易的一种方式。它们可用于订阅服务、捐赠、会员资格和其他定期支付。
 //
-// To use recurring payments, you need to create a payment that specifies the amount, currency, and frequency of the payments, and then share it with your payers. The payer will be redirected to the cryptomus website, where he will need to log in to confirm the payment plan and make the first payment. After that, payments will be made automatically according to the plan.
+// 要使用循环支付，您需要创建一个支付，指定金额、货币和支付频率，然后将其分享给您的付款人。付款人将被重定向到 Cryptomus 网站，在那里他需要登录以确认支付计划并进行首次支付。之后，支付将按照计划自动进行。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateRecurringPaymentWithContext(ctx, CreateRecurringPaymentRequest{
 //		Amount:   "0.0001",

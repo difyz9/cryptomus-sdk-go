@@ -14,15 +14,15 @@ type ResendWebhookResponse struct {
 	Result []ResendWebhookData `json:"result"`
 }
 
-// ResendWebhook resends a webhook.
+// ResendWebhook 重发 Webhook。
 //
-// Details: https://doc.cryptomus.com/business/payments/resend-webhook
+// 详情：https://doc.cryptomus.com/business/payments/resend-webhook
 //
-// Resend the webhook by invoice. You can resend the webhook only for finalized invoices, that is, invoices in statuses: wrong_amount, paid, paid_over.
+// 通过发票重发 Webhook。您只能为已完成的发票重发 Webhook，即状态为：wrong_amount、paid、paid_over 的发票。
 //
-// To resend the webhook on the invoice, the url_callback must be specified at the time of invoice creation.
+// 要在发票上重发 Webhook，必须在创建发票时指定 url_callback。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ResendWebhook(&ResendWebhookRequest{
 //		OrderID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -34,15 +34,15 @@ func (sdk *Cryptomus) ResendWebhook(payload *ResendWebhookRequest) (*ResendWebho
 	return sdk.ResendWebhookWithContext(context.Background(), payload)
 }
 
-// ResendWebhookWithContext resends a webhook.
+// ResendWebhookWithContext 重发 Webhook。
 //
-// Details: https://doc.cryptomus.com/business/payments/resend-webhook
+// 详情：https://doc.cryptomus.com/business/payments/resend-webhook
 //
-// Resend the webhook by invoice. You can resend the webhook only for finalized invoices, that is, invoices in statuses: wrong_amount, paid, paid_over.
+// 通过发票重发 Webhook。您只能为已完成的发票重发 Webhook，即状态为：wrong_amount、paid、paid_over 的发票。
 //
-// To resend the webhook on the invoice, the url_callback must be specified at the time of invoice creation.
+// 要在发票上重发 Webhook，必须在创建发票时指定 url_callback。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ResendWebhookWithContext(ctx, &ResendWebhookRequest{
 //		OrderID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",

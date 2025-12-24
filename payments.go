@@ -64,13 +64,13 @@ type CreateInvoiceResponse struct {
 	Result CreateInvoiceData `json:"result"`
 }
 
-// CreateInvoice creates an invoice.
+// CreateInvoice 创建发票。
 //
-// Details: https://doc.cryptomus.com/business/payments/creating-invoice
+// 详情：https://doc.cryptomus.com/business/payments/creating-invoice
 //
-// The invoice will have a specific cryptocurrency and address at the time of creation only if currency or to_currency parameter is a cryptocurrency and the network parameter is passed (or a cryptocurrency has only one network, for example BTC).
+// 只有当 currency 或 to_currency 参数是加密货币并且传递了 network 参数（或者加密货币只有一个网络，例如 BTC）时，发票才会在创建时拥有特定的加密货币和地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateInvoice(&CreateInvoiceRequest{
 //		Amount:     "15",
@@ -84,13 +84,13 @@ func (sdk *Cryptomus) CreateInvoice(payload *CreateInvoiceRequest) (*CreateInvoi
 	return sdk.CreateInvoiceWithContext(context.Background(), payload)
 }
 
-// CreateInvoiceWithContext creates an invoice.
+// CreateInvoiceWithContext 创建发票。
 //
-// Details: https://doc.cryptomus.com/business/payments/creating-invoice
+// 详情：https://doc.cryptomus.com/business/payments/creating-invoice
 //
-// The invoice will have a specific cryptocurrency and address at the time of creation only if currency or to_currency parameter is a cryptocurrency and the network parameter is passed (or a cryptocurrency has only one network, for example BTC).
+// 只有当 currency 或 to_currency 参数是加密货币并且传递了 network 参数（或者加密货币只有一个网络，例如 BTC）时，发票才会在创建时拥有特定的加密货币和地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateInvoiceWithContext(ctx, &CreateInvoiceRequest{
 //		Amount:     "15",
@@ -140,11 +140,11 @@ type CreateStaticWalletResponse struct {
 	Result CreateStaticWalletData `json:"result"`
 }
 
-// CreateStaticWallet creates a static wallet.
+// CreateStaticWallet 创建静态钱包。
 //
-// Details: https://doc.cryptomus.com/business/payments/creating-static
+// 详情：https://doc.cryptomus.com/business/payments/creating-static
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateStaticWallet(&CreateStaticWalletRequest{
 //		Currency: "USDT",
@@ -159,11 +159,11 @@ func (sdk *Cryptomus) CreateStaticWallet(payload *CreateStaticWalletRequest) (*C
 	return sdk.CreateStaticWalletWithContext(context.Background(), payload)
 }
 
-// CreateStaticWalletWithContext creates a static wallet.
+// CreateStaticWalletWithContext 创建静态钱包。
 //
-// Details: https://doc.cryptomus.com/business/payments/creating-static
+// 详情：https://doc.cryptomus.com/business/payments/creating-static
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.CreateStaticWalletWithContext(ctx, &CreateStaticWalletRequest{
 //		Currency: "USDT",
@@ -205,13 +205,13 @@ type GenerateQRCodeWalletResponse struct {
 	Result GenerateQRCodeWalletData `json:"result"`
 }
 
-// GenerateQRStaticWallet generates a QR code for a static wallet.
+// GenerateQRStaticWallet 为静态钱包生成二维码。
 //
-// Details: https://doc.cryptomus.com/business/payments/qr-code-pay-form
+// 详情：https://doc.cryptomus.com/business/payments/qr-code-pay-form
 //
-// You can generate a QR-code for a static wallet address or for an invoice address. Scanning it, the user will receive the address for depositing funds.
+// 您可以为静态钱包地址或发票地址生成二维码。扫描后，用户将收到存入资金的地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.GenerateQRStaticWallet(&GenerateQRCodeWalletRequest{
 //		WalletAddressUUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -223,13 +223,13 @@ func (sdk *Cryptomus) GenerateQRStaticWallet(payload *GenerateQRCodeWalletReques
 	return sdk.GenerateQRStaticWalletWithContext(context.Background(), payload)
 }
 
-// GenerateQRStaticWalletWithContext generates a QR code for a static wallet.
+// GenerateQRStaticWalletWithContext 为静态钱包生成二维码。
 //
-// Details: https://doc.cryptomus.com/business/payments/qr-code-pay-form
+// 详情：https://doc.cryptomus.com/business/payments/qr-code-pay-form
 //
-// You can generate a QR-code for a static wallet address or for an invoice address. Scanning it, the user will receive the address for depositing funds.
+// 您可以为静态钱包地址或发票地址生成二维码。扫描后，用户将收到存入资金的地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.GenerateQRStaticWalletWithContext(ctx, &GenerateQRCodeWalletRequest{
 //		WalletAddressUUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -268,13 +268,13 @@ type GenerateQRCodeInvoiceResponse struct {
 	Result GenerateQRCodeInvoiceData `json:"result"`
 }
 
-// GenerateQRCodeInvoice generates a QR code for an invoice.
+// GenerateQRCodeInvoice 为发票生成二维码。
 //
-// Details: https://doc.cryptomus.com/business/payments/qr-code-pay-form
+// 详情：https://doc.cryptomus.com/business/payments/qr-code-pay-form
 //
-// You can generate a QR-code for a static wallet address or for an invoice address. Scanning it, the user will receive the address for depositing funds.
+// 您可以为静态钱包地址或发票地址生成二维码。扫描后，用户将收到存入资金的地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.GenerateQRCodeInvoice(&GenerateQRCodeInvoiceRequest{
 //		MerchantPaymentUUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -286,13 +286,13 @@ func (sdk *Cryptomus) GenerateQRCodeInvoice(payload *GenerateQRCodeInvoiceReques
 	return sdk.GenerateQRCodeInvoiceWithContext(context.Background(), payload)
 }
 
-// GenerateQRCodeInvoiceWithContext generates a QR code for an invoice.
+// GenerateQRCodeInvoiceWithContext 为发票生成二维码。
 //
-// Details: https://doc.cryptomus.com/business/payments/qr-code-pay-form
+// 详情：https://doc.cryptomus.com/business/payments/qr-code-pay-form
 //
-// You can generate a QR-code for a static wallet address or for an invoice address. Scanning it, the user will receive the address for depositing funds.
+// 您可以为静态钱包地址或发票地址生成二维码。扫描后，用户将收到存入资金的地址。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.GenerateQRCodeInvoiceWithContext(ctx, &GenerateQRCodeInvoiceRequest{
 //		MerchantPaymentUUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -342,15 +342,15 @@ type BlockStaticWalletResponse struct {
 	Result BlockStaticWalletData `json:"result"`
 }
 
-// BlockStaticWallet blocks a static wallet.
+// BlockStaticWallet 封锁静态钱包。
 //
-// Details: https://doc.cryptomus.com/business/payments/block-wallet
+// 详情：https://doc.cryptomus.com/business/payments/block-wallet
 //
-// When you need to block your clients static wallet, all the further payments will not be credited to his balance. You can make a refund of this funds only once. The funds will be returned to the addresses from which they came.
+// 当您需要封锁客户的静态钱包时，所有后续支付将不会计入其余额。您只能对这些资金进行一次退款。资金将退还至它们来源的地址。
 //
-// You need to pass one of the required parameters, if you pass both, the account will be identified by order_id
+// 您需要传递其中一个必需参数，如果传递了两个参数，将通过 order_id 来识别账户。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.BlockStaticWallet(&BlockStaticWalletRequest{
 //		UUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -362,15 +362,15 @@ func (sdk *Cryptomus) BlockStaticWallet(payload *BlockStaticWalletRequest) (*Blo
 	return sdk.BlockStaticWalletWithContext(context.Background(), payload)
 }
 
-// BlockStaticWalletWithContext blocks a static wallet.
+// BlockStaticWalletWithContext 封锁静态钱包。
 //
-// Details: https://doc.cryptomus.com/business/payments/block-wallet
+// 详情：https://doc.cryptomus.com/business/payments/block-wallet
 //
-// When you need to block your clients static wallet, all the further payments will not be credited to his balance. You can make a refund of this funds only once. The funds will be returned to the addresses from which they came.
+// 当您需要封锁客户的静态钱包时，所有后续支付将不会计入其余额。您只能对这些资金进行一次退款。资金将退还至它们来源的地址。
 //
-// You need to pass one of the required parameters, if you pass both, the account will be identified by order_id
+// 您需要传递其中一个必需参数，如果传递了两个参数，将通过 order_id 来识别账户。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.BlockStaticWalletWithContext(ctx, &BlockStaticWalletRequest{
 //		UUID: "9d7f7b9b-3b7b-4b7b-9b7b-7b9d7f7b9b7b",
@@ -482,13 +482,13 @@ type PaymentInformationResponse struct {
 	Result PaymentInformationData `json:"result"`
 }
 
-// PaymentInformation returns payment information.
+// PaymentInformation 返回支付信息。
 //
-// Details: https://doc.cryptomus.com/business/payments/payment-information
+// 详情：https://doc.cryptomus.com/business/payments/payment-information
 //
-// To get the invoice status you need to pass one of the required parameters, if you pass both, the account will be identified by order_id
+// 要获取发票状态，您需要传递其中一个必需参数，如果传递了两个参数，将通过 order_id 来识别账户。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.PaymentInformation(&PaymentInformationRequest{
 //		UUID: "4b1b3b7b-7b1b-4b1b-7b1b-4b1b3b7b1b4b",
@@ -500,13 +500,13 @@ func (sdk *Cryptomus) PaymentInformation(payload *PaymentInformationRequest) (*P
 	return sdk.PaymentInformationWithContext(context.Background(), payload)
 }
 
-// PaymentInformationWithContext returns payment information.
+// PaymentInformationWithContext 返回支付信息。
 //
-// Details: https://doc.cryptomus.com/business/payments/payment-information
+// 详情：https://doc.cryptomus.com/business/payments/payment-information
 //
-// To get the invoice status you need to pass one of the required parameters, if you pass both, the account will be identified by order_id
+// 要获取发票状态，您需要传递其中一个必需参数，如果传递了两个参数，将通过 order_id 来识别账户。
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.PaymentInformationWithContext(ctx, &PaymentInformationRequest{
 //		UUID: "4b1b3b7b-7b1b-4b1b-7b1b-4b1b3b7b1b4b",

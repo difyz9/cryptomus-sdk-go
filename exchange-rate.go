@@ -6,11 +6,11 @@ import (
 )
 
 type ExchangeRate struct {
-	// From Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 源货币代码（例如 BTC、ETH、USDT 等）
 	From string `json:"from,omitempty"`
-	// To Currency code (e.g. BTC, ETH, USDT, etc.)
+	// 目标货币代码（例如 BTC、ETH、USDT 等）
 	To string `json:"to,omitempty"`
-	// Exchange rate (e.g. 0.0001, 0.0002, 0.0003, etc.)
+	// 汇率（例如 0.0001、0.0002、0.0003 等）
 	Course string `json:"course,omitempty"`
 }
 
@@ -21,11 +21,11 @@ type ExchangeRateResponse struct {
 	Result ExchangeRateList `json:"result,omitempty"`
 }
 
-// ExchangeRateList returns a list of exchange rates.
+// ExchangeRateList 返回汇率列表。
 //
-// Details: https://doc.cryptomus.com/business/exchange-rates/list
+// 详情：https://doc.cryptomus.com/business/exchange-rates/list
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ExchangeRateList("ETH")
 //	if err != nil {
@@ -35,11 +35,11 @@ func (sdk *Cryptomus) ExchangeRateList(currency string) (*ExchangeRateResponse, 
 	return sdk.ExchangeRateListWithContext(context.Background(), currency)
 }
 
-// ExchangeRateListWithContext returns a list of exchange rates.
+// ExchangeRateListWithContext 返回汇率列表。
 //
-// Details: https://doc.cryptomus.com/business/exchange-rates/list
+// 详情：https://doc.cryptomus.com/business/exchange-rates/list
 //
-// Example:
+// 示例：
 //
 //	result, err := sdk.ExchangeRateListWithContext(ctx, "ETH")
 //	if err != nil {

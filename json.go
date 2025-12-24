@@ -2,9 +2,9 @@ package cryptomus
 
 import "encoding/json"
 
-// ToJSON converts a struct to a JSON byte array.
+// ToJSON 将结构体转换为 JSON 字节数组。
 //
-// Example:
+// 示例：
 //
 //	type ExchangeRate struct {
 //		From   string `json:"from,omitempty"`
@@ -31,9 +31,9 @@ func ToJSON[T any](v T) ([]byte, error) {
 	return resByte, nil
 }
 
-// FromJSONString converts a JSON string to a struct.
+// FromJSONString 将 JSON 字符串转换为结构体。
 //
-// Example:
+// 示例：
 //
 //	type ExchangeRate struct {
 //		From   string `json:"from,omitempty"`
