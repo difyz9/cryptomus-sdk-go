@@ -1,6 +1,6 @@
 # Cryptomus SDK Go
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/Aldiwildan77/cryptomus-sdk-go.svg)](https://pkg.go.dev/github.com/Aldiwildan77/cryptomus-sdk-go)
+[![Go Reference](https://pkg.go.dev/badge/github.com/difyz9/cryptomus-sdk-go.svg)](https://pkg.go.dev/github.com/difyz9/cryptomus-sdk-go)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/Aldiwildan77/cryptomus-sdk-go)](https://golang.org/dl/)
 [![License](https://img.shields.io/github/license/Aldiwildan77/cryptomus-sdk-go)](LICENSE)
 
@@ -24,7 +24,7 @@ Cryptomus SDK Go 是一个用于与 Cryptomus API 交互的 Go 语言库。Crypt
 使用以下命令安装 Cryptomus SDK Go：
 
 ```bash
-go get github.com/Aldiwildan77/cryptomus-sdk-go
+go get github.com/difyz9/cryptomus-sdk-go
 ```
 
 ## 🚀 快速开始
@@ -35,7 +35,7 @@ go get github.com/Aldiwildan77/cryptomus-sdk-go
 package main
 
 import (
-    cryptomus "github.com/Aldiwildan77/cryptomus-sdk-go"
+    cryptomus "github.com/difyz9/cryptomus-sdk-go"
 )
 
 func main() {
@@ -140,7 +140,7 @@ result, err := sdk.CreateInvoiceWithContext(ctx, &cryptomus.CreateInvoiceRequest
 ```go
 import (
     "github.com/imroc/req/v3"
-    cryptomus "github.com/Aldiwildan77/cryptomus-sdk-go"
+    cryptomus "github.com/difyz9/cryptomus-sdk-go"
 )
 
 client := req.C().
@@ -172,7 +172,7 @@ sdk := cryptomus.New(
 详细的 API 文档和参数说明，请参考：
 
 - [Cryptomus 官方文档](https://doc.cryptomus.com/)
-- [Go Package 文档](https://pkg.go.dev/github.com/Aldiwildan77/cryptomus-sdk-go)
+- [Go Package 文档](https://pkg.go.dev/github.com/difyz9/cryptomus-sdk-go)
 
 ## 🤝 贡献
 
@@ -198,4 +198,4 @@ sdk := cryptomus.New(
 
 ---
 
-如有问题或建议，请提交 [Issue](https://github.com/Aldiwildan77/cryptomus-sdk-go/issues)。
+如有问题或建议，请提交 [Issue](https://github.com/difyz9/cryptomus-sdk-go/issues)。

@@ -1,4 +1,4 @@
-module github.com/Aldiwildan77/cryptomus-sdk-go
+module github.com/difyz9/cryptomus-sdk-go
 
 go 1.24.0
 
